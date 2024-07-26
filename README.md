@@ -15,13 +15,16 @@ Ensure you have Node.js installed on your machine. You can download it from [nod
    git clone https://github.com/Sathathinesh/Cafe-Employee.git
    cd cafe-employee-backend
 
-2. Install the dependencies
+2. Install the dependencies:
+   ```bash
    npm install
 
-3. Seeding the Database
+3. Seeding the Database:
+    ```bash
     node seed.js
 
-4. Running the Application
+4. Running the Application:
+    ```bash
     node app.js
 
 
