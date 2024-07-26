@@ -33,8 +33,8 @@ const createEmployee = async (data) => {
     }
 
     await EmployeeCafe.create({
-      employee_id: newEmployee.id,
-      cafe_id: cafe.id,
+      EmployeeId: newEmployee.id,
+      CafeId: cafe.id,
       start_date: startDate,
     });
   }
@@ -58,15 +58,15 @@ const updateEmployee = async (id, data) => {
       throw new Error('Cafe not found');
     }
 
-    const employeeCafe = await EmployeeCafe.findOne({ where: { employee_id: employee.id } });
+    const employeeCafe = await EmployeeCafe.findOne({ where: { EmployeeId: employee.id } });
     if (employeeCafe) {
-      employeeCafe.cafe_id = cafe.id;
+      employeeCafe.CafeId = cafe.id;
       employeeCafe.start_date = startDate;
       await employeeCafe.save();
     } else {
       await EmployeeCafe.create({
-        employee_id: employee.id,
-        cafe_id: cafe.id,
+        EmployeeId: employee.id,
+        CafeId: cafe.id,
         start_date: startDate,
       });
     }
