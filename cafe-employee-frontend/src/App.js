@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import CafePage from './pages/CafePage';
@@ -10,14 +10,14 @@ import AddEditEmployeePage from './pages/AddEditEmployeePage';
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Switch>
-        <Route path="/cafes" component={CafePage} />
-        <Route path="/employees" component={EmployeePage} />
-        <Route path="/add-cafe" component={AddEditCafePage} />
-        <Route path="/edit-cafe/:id" component={AddEditCafePage} />
-        <Route path="/add-employee" component={AddEditEmployeePage} />
-        <Route path="/edit-employee/:id" component={AddEditEmployeePage} />
-      </Switch>
+      <Routes>
+        <Route path="/cafes" element={<CafePage />} />
+        <Route path="/employees" element={<EmployeePage />} />
+        <Route path="/add-cafe" element={<AddEditCafePage />} />
+        <Route path="/edit-cafe/:id" element={<AddEditCafePage />} />
+        <Route path="/add-employee" element={<AddEditEmployeePage />} />
+        <Route path="/edit-employee/:id" element={<AddEditEmployeePage />} />
+      </Routes>
     </Router>
   </Provider>
 );

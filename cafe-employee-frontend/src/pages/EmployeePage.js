@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EmployeeTable from '../components/EmployeeTable';
 import { fetchEmployees, deleteEmployee } from '../redux/actions/employeeActions';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EmployeePage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const employees = useSelector(state => state.employees.employees);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const EmployeePage = () => {
   }, [dispatch]);
 
   const handleEdit = id => {
-    history.push(`/edit-employee/${id}`);
+    navigate(`/edit-employee/${id}`);
   };
 
   const handleDelete = id => {
@@ -26,7 +26,7 @@ const EmployeePage = () => {
   return (
     <div>
       <h1>Employees</h1>
-      <button onClick={() => history.push('/add-employee')}>Add New Employee</button>
+      <button onClick={() => navigate('/add-employee')}>Add New Employee</button>
       <EmployeeTable employees={employees} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
